@@ -39,48 +39,49 @@ http://golang.org
 
 .play welcome/hello.go
 
-* Go local
+* Go локаль
 
-The tour is available in other languages:
+Тур доступний іншими мовами:
 
-- [[http://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
-- [[http://go-tour-ca.appspot.com/][Catalan — Català]]
-- [[http://go-tour-de.appspot.com/][German — Deutsch]]
-- [[http://go-tour-es.appspot.com/][Spanish — Español]]
-- [[http://go-tour-fr.appspot.com/][French — Français]]
-- [[http://go-tour-ita.appspot.com/][Italian — Italiano]]
-- [[http://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
-- [[http://go-tour-jp.appspot.com/][Japanese — 日本語]]
-- [[http://go-tour-kr.appspot.com/][Korean — 한국어]]
-- [[http://go-tour-ro.appspot.com/][Romanian — Română]]
-- [[http://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
-- [[http://go-tour-zh-tw.appspot.com/][Traditional Chinese — 中文（繁體）]]
+- [[http://http://tour.golang.org/][Англійська — English]]
+- [[http://go-tour-br.appspot.com/][Бразильська португальська — Português do Brasil]]
+- [[http://go-tour-ca.appspot.com/][Каталонська — Català]]
+- [[http://go-tour-de.appspot.com/][Німецька — Deutsch]]
+- [[http://go-tour-es.appspot.com/][Іспанська — Español]]
+- [[http://go-tour-fr.appspot.com/][Французька — Français]]
+- [[http://go-tour-ita.appspot.com/][Італійська — Italiano]]
+- [[http://go-tour-he.appspot.com/][Іврит — עִבְרִית]]
+- [[http://go-tour-jp.appspot.com/][Японська — 日本語]]
+- [[http://go-tour-kr.appspot.com/][Корейська — 한국어]]
+- [[http://go-tour-ro.appspot.com/][Румунська — Română]]
+- [[http://tour.go-zh.org/][Спрощена китайська — 中文（简体）]]
+- [[http://go-tour-zh-tw.appspot.com/][Традиційна китайська — 中文（繁體）]]
 
-Click the [[javascript:highlightAndClick(".next-page")]["next"]] button or type `PageDown` to continue.
+Клацніть кнопку [[javascript:highlightAndClick(".next-page")]["далі"]] або натисніть `PageDown`, щоб продовжити.
 
-#appengine: * The Go Playground
-#appengine:
-#appengine: This tour is built atop the [[http://play.golang.org/][Go Playground]], a
-#appengine: web service that runs on [[http://golang.org/][golang.org]]'s servers.
-#appengine:
-#appengine: The service receives a Go program, compiles, links, and runs the program inside
-#appengine: a sandbox, then returns the output.
-#appengine:
-#appengine: There are limitations to the programs that can be run in the playground:
-#appengine:
-#appengine: - In the playground the time begins at 2009-11-10 23:00:00 UTC (determining the significance of this date is an exercise for the reader). This makes it easier to cache programs by giving them deterministic output.
-#appengine:
-#appengine: - There are also limits on execution time and on CPU and memory usage, and the program cannot access external network hosts.
-#appengine:
-#appengine: The playground uses the latest stable release of Go.
-#appengine:
-#appengine: Read "[[http://blog.golang.org/playground][Inside the Go Playground]]" to learn more.
-#appengine:
+#appengine: * Go Майданчик
+#appengine: 
+#appengine: Цей тур побудований на базі [[http://play.golang.org/][Go Майданчику]],
+#appengine: веб-служби, що працює на серверах [[http://golang.org/][golang.org]].
+#appengine: 
+#appengine: Служба отримує Go програму, компілює, компонує та виконує програму в межах
+#appengine: пісочниці, потім повертає результат.
+#appengine: 
+#appengine: У програм, що виконуються на майданчику є певні обмеження:
+#appengine: 
+#appengine: - Також є обмеження на тривалість виконання, на використання CPU та пам’яті, крім того програма не має доступу до сторонніх мережевих хостів.
+#appengine: 
+#appengine: - There are also limits on execution time and on CPU and memory usage, and the program cannot access external network hosts. 
+#appengine: 
+#appengine: Майданчик використовує останній стійкий реліз Go.
+#appengine: 
+#appengine: Прочитайте "[[http://blog.golang.org/playground][Всередині Go Майданчику]]", щоб дізнатися більше.
+#appengine: 
 #appengine: .play welcome/sandbox.go
 
-* Congratulations
+* Поздоровлення!
 
-You've finished the first module of the tour!
+Ви завершили перший модуль туру!
 
-Now click on [[javascript:highlightAndClick(".logo")][A Tour of Go]] to find out what else
-you can learn about Go, or go directly to the [[javascript:click('.next-page')][next lesson]].
+Зараз клацніть на [[javascript:highlightAndClick(".logo")][Тур з Go]], щоб дізнатися що ще
+ви можете вивчити про Go, або перейдіть безпосередньо до [[javascript:click('.next-page')][наступного заняття]].
