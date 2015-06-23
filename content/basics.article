@@ -21,16 +21,16 @@ http://golang.org
 
 .play basics/packages.go
 
-* Imports
+* Імпорт
 
-This code groups the imports into a parenthesized, "factored" import statement. 
+Даний код об’єднує імпорт в дужки, так звана «складена» інструкція імпорту. 
 
-You can also write multiple import statements, like:
+Ви також можете писати декілька інструкцій імпорту, ось так:
 
 	import "fmt"
 	import "math"
 
-But it is good style to use the factored import statement.
+Але хорошим стилем є використання складеної інструкції імпорту.
 
 .play basics/imports.go
 
