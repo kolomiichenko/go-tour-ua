@@ -100,25 +100,25 @@ http://golang.org
 
 .play basics/variables.go
 
-* Variables with initializers
+* Змінні з ініціалізацією
 
-A var declaration can include initializers, one per variable.
+Декларація var може включати ініціалізацію, окремо для кожної змінної.
 
-If an initializer is present, the type can be omitted; the variable will take the type of the initializer.
+Якщо присутня ініціалізація, то тип може бути пропущений — змінна прийме тип початкового значення.
 
 .play basics/variables-with-initializers.go
 
-* Short variable declarations
+* Коротке оголошення змінних
 
-Inside a function, the `:=` short assignment statement can be used in place of a `var` declaration with implicit type.
+Всередині функції короткий запис присвоєння `:=` може бути використаний замість оголошення `var` з неявним типом.
 
-Outside a function, every statement begins with a keyword (`var`, `func`, and so on) and so the `:=` construct is not available.
+Поза функцією кожна інструкція починається з ключового слова (`var`, `func` тощо), тож запис `:=` недоступний.
 
 .play basics/short-variable-declarations.go
 
-* Basic types
+* Базові типи
 
-Go's basic types are
+Базові типи Go
 
 	bool
 
@@ -127,97 +127,96 @@ Go's basic types are
 	int  int8  int16  int32  int64
 	uint uint8 uint16 uint32 uint64 uintptr
 
-	byte // alias for uint8
+	byte // псевдонім uint8
 
-	rune // alias for int32
-	     // represents a Unicode code point
+	rune // псевдонім int32
+	     // представляє код символу в системі Unicode
 
 	float32 float64
 
 	complex64 complex128
 
-The example shows variables of several types,
-and also that variable declarations may be "factored" into blocks,
-as with import statements.
+Даний приклад показує змінні різних типів,
+а також те, що оголошення змінних може бути «складена» в блоки,
+подібно до інструкцій імпорту.
 
 .play basics/basic-types.go
 
-* Zero values
+* Нульові значення
 
-Variables declared without an explicit initial value are given their
-_zero_value_.
+Змінні оголошені без явного початкового значення приймають свої
+_нульові_значення_.
 
-The zero value is:
+Нульове значення це:
 
-- `0` for numeric types,
-- `false` the boolean type, and
-- `""` (the empty string) for strings.
+- `0` для числових типів,
+- `false` для булевого типу,
+- `""` (пустий рядок) для рядків.
 
 .play basics/zero.go
 
-* Type conversions
+* Перетворення типів
 
-The expression `T(v)` converts the value `v` to the type `T`.
+Вираз `T(v)` переводить значення `v` до типу `T`.
 
-Some numeric conversions:
+Деякі числові перетворення:
 
 	var i int = 42
 	var f float64 = float64(i)
 	var u uint = uint(f)
 
-Or, put more simply:
+Або, спрощений запис:
 
 	i := 42
 	f := float64(i)
 	u := uint(f)
 
-Unlike in C, in Go assignment between items of different type requires an
-explicit conversion.
-Try removing the `float64` or `int` conversions in the example and see what happens.
+На відміну від C Go потребує явного перетворення для присвоювання елементів різного типу.
+Подивіться, що станеться, якщо прибрати перетворення `float64` чи `int` в прикладі.
 
 .play basics/type-conversions.go
 
-* Type inference
+* Висновок типів
 
-When declaring a variable without specifying its type (using `var` without a type or the `:=` syntax), the variable's type is _inferred_ from the value on the right hand side.
+Коли змінна оголошена без вказання її типу (використовуючи `var` без типу, або `:=` синтаксис), то тип змінної _виснований_ зі значення на правому боці.
 
-When the right hand side of the declaration is typed, the new variable is of that same type:
+Коли правий бік оголошення має тип, то нова змінна приймає той самий тип:
 
 	var i int
 	j := i // j is an int
 
-But when the right hand side contains an untyped numeric constant, the new variable may be an `int`, `float64`, or `complex128` depending on the precision of the constant:
+Але коли на правому боці знаходиться числова константа без типу, то нова змінна може бути `int`, `float64` чи `complex128`, залежно від точності константи:
 
 	i := 42           // int
 	f := 3.142        // float64
 	g := 0.867 + 0.5i // complex128
 
-Try changing the initial value of `v` in the example code and observe how its type is affected.
+Спробуйте змінити початкове значення `v` у коді прикладу та спостерігайте, як це впливає на її тип.
 
 .play basics/type-inference.go
 
-* Constants
+* Константи
 
-Constants are declared like variables, but with the `const` keyword.
+Константи оголошуються як змінні, але з ключовим словом `const`.
 
-Constants can be character, string, boolean, or numeric values.
+Константа може бути символом, рядком, булевим або числовим значенням.
 
-Constants cannot be declared using the `:=` syntax.
+Константи не можуть бути оголошені за допомогою синаксису `:=`.
 
 .play basics/constants.go
 
-* Numeric Constants
+* Числові константи
 
-Numeric constants are high-precision _values_.
+Числові константи — це _значення_ з високою точністю.
 
-An untyped constant takes the type needed by its context.
+Констата без типу примає тип, якого потребує її контекст.
 
-Try printing `needInt(Big)` too.
+Спробуйте вивести також `needInt(Big)`.
 
 .play basics/numeric-constants.go
 
-* Congratulations!
+* Поздоровлення!
 
-You finished this lesson!
+Ви завершили дане заняття!
 
-You can go back to the list of [[/list][modules]] to find what to learn next, or continue with the [[javascript:click('.next-page')][next lesson]].
+Ви можете повернутися до переліку [[/list][модулів]], щоб знайти, що вивчити далі, або перейдіть до [[javascript:click('.next-page')][наступного заняття]].
