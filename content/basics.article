@@ -34,27 +34,27 @@ http://golang.org
 
 .play basics/imports.go
 
-* Exported names
+* Експортовані назви
 
-After importing a package, you can refer to the names it exports.
+Після імпортування пакети ви можете звертатися до імен, як він експортує.
 
-In Go, a name is exported if it begins with a capital letter.
+В Go, ім’я експортується, якщо воно починається з великої літери.
 
-`Foo` is an exported name, as is `FOO`. The name `foo` is not exported.
+`Foo` експортується, так само як `FOO`. Ім’я `foo` не експортується.
 
-Run the code. Then rename `math.pi` to `math.Pi` and try it again.
+Виконайте код. Потім переіменуйте `math.pi` на `math.Pi` та спробуйте знову.
 
 .play basics/exported-names.go
 
-* Functions
+* Функції
 
-A function can take zero or more arguments.
+Функція може приймати нуль або більше аргументів.
 
-In this example, `add` takes two parameters of type `int`.
+У даному прикладі, `add` приймає два параметри типу `int`.
 
-Notice that the type comes _after_ the variable name.
+Зверніть увагу, що тип знаходиться _після_ імені змінної.
 
-(For more about why types look the way they do, see the [[http://blog.golang.org/gos-declaration-syntax][article on Go's declaration syntax]].)
+(Більше про типи та чому вони виглядають саме так, дивіться у [[http://blog.golang.org/gos-declaration-syntax][статті про синтаксис декларацій Go]].)
 
 .play basics/functions.go
 
