@@ -58,45 +58,45 @@ http://golang.org
 
 .play basics/functions.go
 
-* Functions continued
+* Функції, продовження
 
-When two or more consecutive named function parameters share a type, you can omit the type from all but the last.
+Коли двоє чи більше послідовних параметрів функції мають один тип, то цей тип може бути пропущений для всіх параметрів крім останнього.
 
-In this example, we shortened
+В даному прикладі, ми скоротили
 
 	x int, y int
 
-to
+до
 
 	x, y int
 
 .play basics/functions-continued.go
 
-* Multiple results
+* Декілька результатів
 
-A function can return any number of results.
+Функція може повертати будь-яке число результатів.
 
-The `swap` function returns two strings.
+Функція `swap` повертає два рядки.
 
 .play basics/multiple-results.go
 
-* Named return values
+* Повернення іменованих значень
 
-Go's return values may be named and act just like variables.
+В Go значення результату можуть бути іменованими та поводитись так, як змінні.
 
-These names should be used to document the meaning of the return values.
+Ці імена повинні використовуватись для свідчення про зміст значень, що повертаються.
 
-A `return` statement without arguments returns the current values of the results. This is known as a "naked" return.
+Інструкція `return` без аргументів повертає поточні значення результатів. Це називається "голе" повернення.
 
-Naked return statements should be used only in short functions, as with the example shown here. They can harm readability in longer functions.
+Голі повернення повинні використовуватися тільки в коротких функціях, таких як наданий приклад. У довших функціях вони можуть завадити простоті читання.
 
 .play basics/named-results.go
 
-* Variables
+* Змінні
 
-The `var` statement declares a list of variables; as in function argument lists, the type is last.
+Інструкція `var` об’являє перелік змінних; так само, як для аргументів функції — тип у кінці.
 
-A `var` statement can be at package or function level. We see both in this example.
+Інструкція `var` може бути на рівні пакету чи фунції. В даному прикладі присутні обидва варіанти.
 
 .play basics/variables.go
 
