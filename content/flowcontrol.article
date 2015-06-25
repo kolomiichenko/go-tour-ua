@@ -1,40 +1,40 @@
-Flow control statements: for, if, else, switch and defer
-Learn how to control the flow of your code with conditionals, loops, switches and defers.
+Інструкції контролю руху: for, if, else, та and defer
+Навчіться контролювати рух вашим кодом за допомогою умов, циклів, перемикань та відкладень.
 
 The Go Authors
 http://golang.org
 
 * For
 
-Go has only one looping construct, the `for` loop.
+Go має тільки один запис циклування — цикл `for`.
 
-The basic `for` loop looks as it does in C or Java, except that the `(`)` are gone (they are not even optional) and the `{`}` are required.
+Цикл `for` пишеться так само, як у C або Java, крім того, що `(`)` відсутні (вони навіть не дозволені), а `{`}` є обов’язковими.
 
 .play flowcontrol/for.go
 
-* For continued
+* For, продовження
 
-As in C or Java, you can leave the pre and post statements empty.
+Як у C або Java, інструкції перед та після умови можуть бути залишені порожніми.
 
 .play flowcontrol/for-continued.go
 
-* For is Go's "while"
+* For — це "while" для Go
 
-At that point you can drop the semicolons: C's `while` is spelled `for` in Go.
+Врешті-решт, можна позбавитись крапок з комами — `while` з C замінюється `for` у Go.
 
 .play flowcontrol/for-is-gos-while.go
 
-* Forever
+* Назавжди
 
-If you omit the loop condition it loops forever, so an infinite loop is compactly expressed.
+Якщо пропустити умову повторення, то цикл повторюється без кінця, тож нескінченний цикл виражається щільно.
 
 .play flowcontrol/forever.go
 
 * If
 
-The `if` statement looks as it does in C or Java, except that the `(`)` are gone and the `{`}` are required.
+Інструкція `if` виглядає так само, як у C або Java, окрім того, що `(`)` відсутні, а `{`}` є обов’язковими.
 
-(Sound familiar?)
+(Впізнаєте?)
 
 .play flowcontrol/if.go
 
