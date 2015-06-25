@@ -1,117 +1,117 @@
-More types: structs, slices, and maps.
-Learn how to define types based on existing ones: this lesson covers structs, arrays, slices, and maps.
+Більше типів: структури, вирізки та словники.
+Навчіться описувати типи на основі існуючих: це заняття охоплює структури, масиви, вирізки та словники.
 
-The Go Authors
+Автори Go
 http://golang.org
 
-* Pointers
+* Вказівники
 
-Go has pointers.
-A pointer holds the memory address of a variable.
+В Go є вказівники.
+Вказівник містить адресу пам’яті для змінної.
 
-The type `*T` is a pointer to a `T` value. Its zero value is `nil`.
+Тип `*T` — вказіник на значення з типом `T`. Його нульове значення це `nil`.
 
 	var p *int
 
-The `&` operator generates a pointer to its operand.
+Оператор `&` генерує вказівник на свій операнд.
 
 	i := 42
 	p = &i
 
-The `*` operator denotes the pointer's underlying value.
+Оператор `*` визначає залежне значення за вказівником.
 
-	fmt.Println(*p) // read i through the pointer p
-	*p = 21         // set i through the pointer p
+	fmt.Println(*p) // прочитати i через вказівник p
+	*p = 21         // задати i через вказівник p
 
-This is known as "dereferencing" or "indirecting".
+Це відомо як "розіменування" чи "присвоювання".
 
-Unlike C, Go has no pointer arithmetic.
+На відміну від C, в Go немає адресної арифметики.
 
 .play moretypes/pointers.go
 
-* Structs
+* Структури
 
-A `struct` is a collection of fields.
+`struct` — це колекція полів.
 
-(And a `type` declaration does what you'd expect.)
+(А оголошення `type` робить те, що ви могли б очікувати.)
 
 .play moretypes/structs.go
 
-* Struct Fields
+* Поля структури
 
-Struct fields are accessed using a dot.
+До полів структури звертаються через крапку.
 
 .play moretypes/struct-fields.go
 
-* Pointers to structs
+* Вказівники на структури
 
-Struct fields can be accessed through a struct pointer.
+До полів структури можна звертатися через вказівник на структуру.
 
-The indirection through the pointer is transparent.
+Непряма адресація через вказівник є прозорою.
 
 .play moretypes/struct-pointers.go
 
-* Struct Literals
+* Літерали структур
 
-A struct literal denotes a newly allocated struct value by listing the values of its fields.
+Літерал структури визначає новостворену структуру через перелік значень її полів.
 
-You can list just a subset of fields by using the `Name:` syntax. (And the order of named fields is irrelevant.)
+Ви можете перелічити тільки окремий набір полів за допомогою синтаксису `Name:` (порядок іменованих полів неважливий).
 
-The special prefix `&` returns a pointer to the struct value.
+Спеціальний префікс `&` повертає вказівник на значення структури.
 
 .play moretypes/struct-literals.go
 
-* Arrays
+* Масиви
 
-The type `[n]T` is an array of `n` values of type `T`.
+Тип `[n]T` — масив з `n` значень типу `T`.
 
-The expression
+Вираз
 
 	var a [10]int
 
-declares a variable `a` as an array of ten integers.
+оголошує змінну `a` масивом з десяти цілих.
 
-An array's length is part of its type, so arrays cannot be resized.
-This seems limiting, but don't worry;
-Go provides a convenient way of working with arrays.
+Розмір масиву є частиною його типу, тож масиви не можуть змінювати розмір.
+Це видається обмеженням, але не хвилюйтесь;
+Go забезпечує зручний спосіб роботи з масивами.
 
 .play moretypes/array.go
 
-* Slices
+* Вирізки
 
-A slice points to an array of values and also includes a length.
+Вирізка вказує на масив значень, але також включає довжину.
 
-`[]T` is a slice with elements of type `T`.
+`[]T` — це вирізка з елементами типу `T`.
 
 .play moretypes/slices.go
 
-* Slicing slices
+* Вирізки вирізок
 
-Slices can be re-sliced, creating a new slice value that points to the same array.
+Вирізки можуть бути пере-різані, що створює нове значення вирізки, яке вказує на той самий масив.
 
-The expression
+Вираз
 
 	s[lo:hi]
 
-evaluates to a slice of the elements from `lo` through `hi-1`, inclusive. Thus
+визначає вирізку елементів з `lo` до `hi-1`, включно. Отже
 
 	s[lo:lo]
 
-is empty and
+порожня, а
 
 	s[lo:lo+1]
 
-has one element.
+містить один елемент.
 
 .play moretypes/slicing-slices.go
 
-* Making slices
+* Створення вирізок
 
-Slices are created with the `make` function. It works by allocating a zeroed array and returning a slice that refers to that array:
+Вирізки створюються функцією `make`. Вона працює через створення обнуленного масиву та повертає вирізку, що посилається на цей масив:
 
 	a := make([]int, 5)  // len(a)=5
 
-To specify a capacity, pass a third argument to `make`:
+Щоб задати ємність, передайте третій параметер для `make`:
 
 	b := make([]int, 0, 5) // len(b)=0, cap(b)=5
 
@@ -120,51 +120,50 @@ To specify a capacity, pass a third argument to `make`:
 
 .play moretypes/making-slices.go
 
-* Nil slices
+* Nil вирізки
 
-The zero value of a slice is `nil`.
+Нульнове значення вирізки — це `nil`.
 
-A nil slice has a length and capacity of 0.
+Nil вирізка має довжину та ємність рівні 0.
 
 .play moretypes/nil-slices.go
 
-* Adding elements to a slice
+* Додавання елементів до вирізки
 
-It is common to append new elements to a slice, and so Go provides a built-in
-`append` function. The [[http://golang.org/pkg/builtin/#append][documentation]]
-of the built-in package describes `append`.
+Поширеним є додавання до вирізки нових елементів, тож Go забезпечує вбудовану
+функцію `append`. [[http://golang.org/pkg/builtin/#append][Документація]]
+вбудованого пакету описує `append`.
 
 	func append(s []T, vs ...T) []T
 
-The first parameter `s` of `append` is a slice of type `T`, and the rest are
-`T` values to append to the slice.
+Перший параметр `s` в `append` — це вирізка типу `T`, а інші є
+значеннями `T`, що додаються до вирізки.
 
-The resulting value of `append` is a slice containing all the elements of the
-original slice plus the provided values.
+Значення результату `append` — це вирізка, що містить всі елементи
+початкової вирізки плюс надані значення.
 
-If the backing array of `s` is too small to fit all the given values a bigger
-array will be allocated. The returned slice will point to the newly allocated
-array.
+Якщо прихований за `s` масив є занадто малим, щоб вмістити всі надані значення,
+то буде виділений більший масив. Повернена вирізка буде вказувати на новий масив.
 
-(To learn more about slices, read the [[http://blog.golang.org/go-slices-usage-and-internals][Slices: usage and internals]] article.)
+(Щоб дізнатися про вирізки більше, прочитайте статтю [[http://blog.golang.org/go-slices-usage-and-internals][Вирізки: вживання та внутрішня побудова]].)
 
 .play moretypes/append.go
 
 * Range
 
-The `range` form of the `for` loop iterates over a slice or map.
+Різновид `range` циклу `for` повторюється для вирізки або словника.
 
 .play moretypes/range.go
 
-* Range continued
+* Range, продовження
 
-You can skip the index or value by assigning to `_`.
+Ви можете пропустити позицію або значення, призначаючи `_`.
 
-If you only want the index, drop the ", value" entirely.
+Якщо потрібна тільки позиція, то ", value" можна відкинути зовсім.
 
 .play moretypes/range-continued.go
 
-* Exercise: Slices
+* Вправа: Вирізки
 
 Implement `Pic`. It should return a slice of length `dy`, each element of which is a slice of `dx` 8-bit unsigned integers. When you run the program, it will display your picture, interpreting the integers as grayscale (well, bluescale) values.
 
