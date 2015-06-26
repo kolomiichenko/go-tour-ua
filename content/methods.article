@@ -1,57 +1,57 @@
-Methods and interfaces
-This lesson covers methods and interfaces, the constructs that define objects and their behavior.
+Методи та інтерфейси
+Дане заняття осягає методи та інтерфейси, записи, що визначають об’єкти та їхню поведінку.
 
-The Go Authors
+Автори Go
 http://golang.org
 
-* Methods
+* Методи
 
-Go does not have classes. However, you can define methods on struct types.
+В Go немає класів. Однак, ви можете визначати методи для типу структури.
 
-The _method_receiver_ appears in its own argument list between the `func` keyword and the method name.
+_Одержувач_методу_ представлений у своєму власному переліку аргументів між ключовим словом `func` та назвою методу.
 
 .play methods/methods.go
 
-* Methods continued
+* Методи, продовження
 
-You can declare a method on _any_ type that is declared in your package, not just struct types.
+Ви можете оголосити метод для _будь-якого_ типу, що оголошений в вашому пакеті, не тільки структури.
 
-However, you cannot define a method on a type from another package (including built in types).
+Проте, ви не можете визначити метод для типу з іншого пакету (включно з вбудованими типами).
 
 .play methods/methods-continued.go
 
-* Methods with pointer receivers
+* Методи з одержувачами вказівниками
 
-Methods can be associated with a named type or a pointer to a named type.
+Методи можуть бути сполучені з іменованим типом або вказівником на іменований тип.
 
-We just saw two `Abs` methods. One on the `*Vertex` pointer type and the other on the `MyFloat` value type.
+Ми побачили два методи `Abs`. Один для вказівника типу `*Vertex`, а інший для значення типу `MyFloat`.
 
-There are two reasons to use a pointer receiver. First, to avoid copying the value on each method call (more efficient if the value type is a large struct). Second, so that the method can modify the value that its receiver points to.
+Є дві причини, щоб використовувати одержувач вказівник. По-перше, щоб запобігти копіюванню значення для кожного виклику методу (більш продуктивно, якщо значення типу є великою структурою). По-друге, щоб метод міг змінювати значення, на яке вказує одержувач.
 
-Try changing the declarations of the `Abs` and `Scale` methods to use `Vertex` as the receiver, instead of `*Vertex`.
+Спробуйте змінити оголошення методів `Abs` та `Scale`, щоб вони використовували як одержувач `Vertex` замість `*Vertex`.
 
-The `Scale` method has no effect when `v` is a `Vertex`. `Scale` mutates `v`. When `v` is a value (non-pointer) type, the method sees a copy of the `Vertex` and cannot mutate the original value.
+Метод `Scale` ніяк не впливає, коли `v` є `Vertex`. `Scale` змінює `v`. Коли `v` є значенням (не вказівником) типу, то метод отримує копію `Vertex` і не має змоги змінити оригінальне значення.
 
-`Abs` works either way. It only reads `v`. It doesn't matter whether it is reading the original value (through a pointer) or a copy of that value.
+`Abs` працює в будь-якому разі. Він тільки читає `v`. Немає значення чи це оригінальне значення (через вказівник), чи це копія того значення.
 
 .play methods/methods-with-pointer-receivers.go
 
-* Interfaces
+* Інтерфейс
 
-An interface type is defined by a set of methods.
+Тип інтерфейсу визначається набором методів.
 
-A value of interface type can hold any value that implements those methods.
+Значення типу інтерфейс може містити будь-яке значення, що втілює дані методи.
 
-*Note:* There is an error in the example code on line 22.
-`Vertex` (the value type) doesn't satisfy `Abser` because	
-the `Abs` method is defined only on `*Vertex` (the pointer type).
+*Примітка:* В коді прикладу є помилка на рядку 22.
+`Vertex` (значення типу) не задовільняє `Abser`, бо	
+метод `Abs` визначений на `*Vertex` (вказівник типу).
 
 .play methods/interfaces.go
 
-* Interfaces are satisfied implicitly
+* Інтерфейси задовільняються неявно
 
-A type implements an interface by implementing the methods.
-There is no explicit declaration of intent; no "implements" keyword. 
+Тип втілює інтерфейс через втілення методів.
+Не існує вираженого оголошення наміру; нема ключового слова "implements". 
 
 Implicit interfaces decouple implementation packages from the packages that define the interfaces: neither depends on the other.
 
