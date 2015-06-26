@@ -53,51 +53,49 @@ _Одержувач_методу_ представлений у своєму в�
 Тип втілює інтерфейс через втілення методів.
 Не існує вираженого оголошення наміру; нема ключового слова "implements". 
 
-Implicit interfaces decouple implementation packages from the packages that define the interfaces: neither depends on the other.
+Неявні інтерфейси розділяють пакети реалізації від пакетів, що визначають інтерфейси — вони незалежні один від одного.
 
-It also encourages the definition of precise interfaces, because you don't have to find every implementation and tag it with the new interface name.
+Це також заохочує визначення точних інтерфейсів, тому що ви не повинні шукати кожну реалізацію та навішувати на неї ім’я цього інтерфейсу.
 
-[[http://golang.org/pkg/io/][Package io]] defines `Reader` and `Writer`; you don't have to.
+[[http://golang.org/pkg/io/][Пакет io]] визначає `Reader` та `Writer`; ви не мусите цього робити.
 
 .play methods/interfaces-are-satisfied-implicitly.go
 
-* Stringers
+* Stringer
 
-One of the most ubiquitous interfaces is [[//golang.org/pkg/fmt/#Stringer][`Stringer`]] defined by the [[//golang.org/pkg/fmt/][`fmt`]] package.
+Одним з найбільш повсюдних інтерфейсів є [[//golang.org/pkg/fmt/#Stringer][`Stringer`]], визначений в пакеті [[//golang.org/pkg/fmt/][`fmt`]].
 
 	type Stringer interface {
 		String() string
 	}
 
-A `Stringer` is a type that can describe itself as a string. The `fmt` package
-(and many others) look for this interface to print values.
+`Stringer` — це тип, що може бути представлений рядком. Пакет `fmt`
+(та багато інших) потребують цей інтерфейс, що виводити значення.
 
 .play methods/stringer.go
 
-* Exercise: Stringers
+* Вправа: Stringer
 
-Make the `IPAddr` type implement `fmt.Stringer` to print the address as
-a dotted quad.
+Примусьте `IPAddr` втілити `fmt.Stringer`, щоб виводити адресу, як 
+четвірку чисел з крапками.
 
-For instance, `IPAddr{1,`2,`3,`4}` should print as `"1.2.3.4"`.
+Наприклад, `IPAddr{1,`2,`3,`4}` має виводитися `"1.2.3.4"`.
 
 .play methods/exercise-stringer.go
 
-* Errors
+* Помилки
 
-Go programs express error state with `error` values. 
+Програми Go висловлюють стан помилки за допомогою значень `error`.
 
-The `error` type is a built-in interface similar to `fmt.Stringer`:
+Тип `error` є вбудованим інтерфейсом схожим на `fmt.Stringer`:
 
 	type error interface {
 		Error() string
 	}
 
-(As with `fmt.Stringer`, the `fmt` package looks for the `error` interface when
-printing values.)
+(Подібно до `fmt.Stringer`, пакет `fmt` очікує інтерфейс `error`, коли виводить значення.)
 
-Functions often return an `error` value, and calling code should handle errors
-by testing whether the error equals `nil`.
+Функції часто повертають значення `error`, код повинен оброблюти помилки, перевіряючи чи помилка дорівнює `nil`.
 
 	i, err := strconv.Atoi("42")
 	if err != nil {
@@ -105,76 +103,74 @@ by testing whether the error equals `nil`.
 	}
 	fmt.Println("Converted integer:", i)
 
-A nil `error` denotes success; a non-nil `error` denotes failure.
+Nil `error` означає успіх; не nil `error` означає невдачу.
 
 .play methods/errors.go
 
-* Exercise: Errors
+* Вправа: Помилки
 
-Copy your `Sqrt` function from the earlier exercises and modify it to return an `error` value.
+Скопіюйте вашу функцію `Sqrt` з попередніх вправ та змініть її, щоб вона повертала значення `error`.
 
-`Sqrt` should return a non-nil error value when given a negative number, as it doesn't support complex numbers.
+`Sqrt` повинна повертати не nil значення помилки, коли отримує негативне число, так як вона не підтримує комплексні числа.
 
-Create a new type
+Створіть новий тип
 
 	type ErrNegativeSqrt float64
 
-and make it an `error` by giving it a
+та зробіть його `error`, надаючи йому
 
 	func (e ErrNegativeSqrt) Error() string
 
-method such that `ErrNegativeSqrt(-2).Error()` returns `"cannot`Sqrt`negative`number:`-2"`.
+метод, так що `ErrNegativeSqrt(-2).Error()` повертає `"cannot`Sqrt`negative`number:`-2"`.
 
-*Note:* a call to `fmt.Sprint(e)` inside the `Error` method will send the program into an infinite loop. You can avoid this by converting `e` first: `fmt.Sprint(float64(e))`. Why?
+*Примітка:* виклик `fmt.Sprint(e)` всередині методу `Error` відправить програму до нескінченного циклу. Це можна обійти, якщо спершу перетворити `e`: `fmt.Sprint(float64(e))`. Чому?
 
-Change your `Sqrt` function to return an `ErrNegativeSqrt` value when given a negative number.
+Змініть вашу функцію `Sqrt`, щоб вона повертала значення `ErrNegativeSqrt`, коли отримує негативне число.
 
 .play methods/exercise-errors.go
 
-* Readers
+* Reader
 
-The `io` package specifies the `io.Reader` interface,
-which represents the read end of a stream of data.
+Пакет `io` визнає інтерфейс `io.Reader`,
+що представляє те, що стосується читання потоку даних.
 
-The Go standard library contains [[http://golang.org/search?q=Read#Global][many implementations]] of these interfaces, including files, network connections, compressors, ciphers, and others.
+Стандартна бібліотека Go містить [[http://golang.org/search?q=Read#Global][багато втілень]] цих інтерфейсів, включно з файлами, мережевими з’єднаннями, стисненням, шифруванням тощо.
 
-The `io.Reader` interface has a `Read` method:
+Інтерфейс `io.Reader` має метод `Read`:
 
 	func (T) Read(b []byte) (n int, err error)
 
-`Read` populates the given byte slice with data and returns the number of bytes
-populated and an error value. It returns an `io.EOF` error when the stream
-ends.
+`Read` наповнює даними отриману вирізку байтів і повертає число наповнених байтів
+та значення помилки. Вона повертає помилку `io.EOF`, коли потік закінчується.
 
-The example code creates a 
+Код прикладу створює
 [[//golang.org/pkg/strings/#Reader][`strings.Reader`]].
-and consumes its output 8 bytes at a time.
+та споживає свій вивід по 8 байтів за раз.
 
 .play methods/reader.go
 
-* Exercise: Readers
+* Вправа: Reader
 
-Implement a `Reader` type that emits an infinite stream of the ASCII character
-`'A'`.
+Реалізуйте тип `Reader`, що поширює нескінченний потік символу ASCII `'A'`.
 
 .play methods/exercise-reader.go
 
-* Exercise: rot13Reader
+* Вправа: rot13Reader
 
-A common pattern is an [[http://golang.org/pkg/io/#Reader][io.Reader]] that wraps another `io.Reader`, modifying the stream in some way.
+Поширеним зразком є [[http://golang.org/pkg/io/#Reader][io.Reader]], що огортає інший `io.Reader`, змінюючи потік якимось чином.
 
-For example, the [[http://golang.org/pkg/compress/gzip/#NewReader][gzip.NewReader]] function takes an `io.Reader` (a stream of compressed data) and returns a `*gzip.Reader` that also implements `io.Reader` (a stream of the decompressed data).
+Наприклад, функція [[http://golang.org/pkg/compress/gzip/#NewReader][gzip.NewReader]] приймає `io.Reader` (потік стиснених даних) і повертає `*gzip.Reader`, що також втілює `io.Reader` (потік відновленних даних).
 
-Implement a `rot13Reader` that implements `io.Reader` and reads from an `io.Reader`, modifying the stream by applying the [[http://en.wikipedia.org/wiki/ROT13][rot13]] substitution cipher to all alphabetical characters.
+Реалізуйте `rot13Reader`, що втілює `io.Reader` та зчитує з `io.Reader`, змінюючи потік за допомогою [[http://en.wikipedia.org/wiki/ROT13][rot13]] підстановочний шифр до всіх символів алфавіту.
 
-The `rot13Reader` type is provided for you.
-Make it an `io.Reader` by implementing its `Read` method.
+Тип `rot13Reader` забезпечений для вас.
+Зробіть його `io.Reader`, втіливши метод `Read`.
 
 .play methods/exercise-rot-reader.go
 
-* Web servers
+* Веб-сервери
 
-[[http://golang.org/pkg/net/http/][Package http]] serves HTTP requests using any value that implements `http.Handler`:
+[[http://golang.org/pkg/net/http/][Пакет http]] обслуговує запити HTTP за допомогою будь-якого значення, що втілює `http.Handler`:
 
 	package http
 
@@ -182,19 +178,19 @@ Make it an `io.Reader` by implementing its `Read` method.
 		ServeHTTP(w ResponseWriter, r *Request)
 	}
 
-In this example, the type `Hello` implements `http.Handler`.
+В даному прикладі, тип `Hello` втілює `http.Handler`.
 
-Visit [[http://localhost:4000/][http://localhost:4000/]] to see the greeting.
+Відкрийте [[http://localhost:4000/][http://localhost:4000/]], щоб побачити привітання.
 
-#appengine: *Note:* This example won't run through the web-based tour user
-#appengine: interface. To try writing web servers you may want to
-#appengine: [[http://golang.org/doc/install/][Install Go]].
+#appengine: *Примітка:* Даний приклад не буде виконуватися через інтерфейс веб-туру.
+#appengine: Щоб спробувати писати власні веб-сервери ви маєте
+#appengine: [[http://golang.org/doc/install/][Встановити Go]].
 
 .play methods/web-servers.go
 
-* Exercise: HTTP Handlers
+* Вправа: Обробка HTTP
 
-Implement the following types and define ServeHTTP methods on them. Register them to handle specific paths in your web server.
+Реалізуйте наступні типи та визначте для них методи ServeHTTP. Зареєструйте їх для певних адрес вашого веб-серверу.
 
 	type String string
 
@@ -204,20 +200,20 @@ Implement the following types and define ServeHTTP methods on them. Register the
 		Who      string
 	}
 
-For example, you should be able to register handlers using:
+Наприклад, ви маєте змогу зареєструвати оброблювачі так:
 
 	http.Handle("/string", String("I'm a frayed knot."))
 	http.Handle("/struct", &Struct{"Hello", ":", "Gophers!"})
 
-#appengine: *Note:* This example won't run through the web-based tour user
-#appengine: interface. To try writing web servers you may want to
-#appengine: [[http://golang.org/doc/install/][Install Go]].
+#appengine: *Примітка:* Даний приклад не буде виконуватися через інтерфейс веб-туру.
+#appengine: Щоб спробувати писати власні веб-сервери ви маєте
+#appengine: [[http://golang.org/doc/install/][Встановити Go]].
 
 .play methods/exercise-http-handlers.go
 
-* Images
+* Зображення
 
-[[http://golang.org/pkg/image/#Image][Package image]] defines the `Image` interface:
+[[http://golang.org/pkg/image/#Image][Пакет image]] визначає інтерфейс `Image`:
 
 	package image
 
@@ -227,32 +223,31 @@ For example, you should be able to register handlers using:
 		At(x, y int) color.Color
 	}
 
-*Note*: the `Rectangle` return value of the `Bounds` method is actually an
-[[http://golang.org/pkg/image/#Rectangle][`image.Rectangle`]], as the
-declaration is inside package `image`.
+*Примітка*: значення `Rectangle` результату метода `Bounds` насправді є
+[[http://golang.org/pkg/image/#Rectangle][`image.Rectangle`]], так як оголошення знаходиться всередині пакету `image`.
 
-(See [[http://golang.org/pkg/image/#Image][the documentation]] for all the details.)
+(Дивіться [[http://golang.org/pkg/image/#Image][документацію]] заради усіх деталей.)
 
-The `color.Color` and `color.Model` types are also interfaces, but we'll ignore that by using the predefined implementations `color.RGBA` and `color.RGBAModel`. These interfaces and types are specified by the [[http://golang.org/pkg/image/color/][image/color package]]
+Типи `color.Color` та `color.Model` також є інтерфейсами, але ми не звертатимемо на це уваги, бо будемо використовувати вже визначені реалізації `color.RGBA` та `color.RGBAModel`. Дані інтерфейси і типи визначені в [[http://golang.org/pkg/image/color/][пакеті image/color]].
 
 .play methods/images.go
 
-* Exercise: Images
+* Вправа: Зображення
 
-Remember the picture generator you wrote earlier? Let's write another one, but this time it will return an implementation of `image.Image` instead of a slice of data.
+Пам’ятаєте генератор зображень, що ви написали раніше. Давайте напишемо ще один, але цього разу він повертатиме втілення `image.Image` замість вирізки даних.
 
-Define your own `Image` type, implement [[http://golang.org/pkg/image/#Image][the necessary methods]], and call `pic.ShowImage`.
+Визначте ваш власний тип `Image`, що втілює [[http://golang.org/pkg/image/#Image][необхідні методи]], та викличте `pic.ShowImage`.
 
-`Bounds` should return a `image.Rectangle`, like `image.Rect(0,`0,`w,`h)`.
+`Bounds` мусить повернути `image.Rectangle`, схоже на `image.Rect(0,`0,`w,`h)`.
 
-`ColorModel` should return `color.RGBAModel`.
+`ColorModel` мусить повернути `color.RGBAModel`.
 
-`At` should return a color; the value `v` in the last picture generator corresponds to `color.RGBA{v,`v,`255,`255}` in this one.
+`At` має повернути колір; значення `v` в старому генераторі зображень відповідає до `color.RGBA{v,`v,`255,`255}` у цьому.
 
 .play methods/exercise-images.go
 
-* Congratulations!
+* Вітаємо!
 
-You finished this lesson!
+Ви завершили дане заняття!
 
-You can go back to the list of [[/list][modules]] to find what to learn next, or continue with the [[javascript:click('.next-page')][next lesson]].
+Ви можете повернутися до переліку [[/list][модулів]], щоб знайти, що вивчити далі, або перейдіть до [[javascript:click('.next-page')][наступного заняття]].
