@@ -1,26 +1,26 @@
 Конкуренція
-Go provides concurrency constructions as part of the core language. This lessons presents them and gives some examples on how to use it.
+Go забезпечує побудови конкуренції, як частину ядра самої мови. Ці заняття представляють їх та подають приклади, як ними користуватися.
 
-The Go Authors
+Автори Go
 http://golang.org
 
-* Goroutines
+* Go-підпрограми
 
-A _goroutine_ is a lightweight thread managed by the Go runtime.
+_Go-підпрограма_(goroutine)_ — це легковагий потік виконання керований середовищем Go.
 
 	go f(x, y, z)
 
-starts a new goroutine running
+запускає нову go-підпрограму, що виконує
 
 	f(x, y, z)
 
-The evaluation of `f`, `x`, `y`, and `z` happens in the current goroutine and the execution of `f` happens in the new goroutine.
+Визначення `f`, `x`, `y` та `z` відбувається в поточній go-підрограмі, а виконання `f` відбувається в новій go-підпрограмі.
 
-Goroutines run in the same address space, so access to shared memory must be synchronized. The [[http://golang.org/pkg/sync/][`sync`]] package provides useful primitives, although you won't need them much in Go as there are other primitives. (See the next slide.)
+Go-підпрограми виконуються в тому самому просторі адрес, тож доступ до спільної пам’яті має бути синхронізованим. Пакет [[http://golang.org/pkg/sync/][`sync`]] provides useful primitives, although you won't need them much in Go as there are other primitives. (See the next slide.)
 
 .play concurrency/goroutines.go
 
-* Channels
+* Канали
 
 Channels are a typed conduit through which you can send and receive values with the channel operator, `<-`.
 
