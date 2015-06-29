@@ -9,7 +9,7 @@ angular.module('tour.values', []).
 // List of modules with description and lessons in it.
 value('tableOfContents', [{
     'id': 'mechanics',
-    'title': 'Використання туру',
+    'title': 'Користування туром',
     'description': '<p>Ласкаво просимо до туру з <a href="http://golang.org">мови програмування Go</a>. Тур осягає набільш важливі властивості мови, зокрема:</p>',
     'lessons': ['welcome']
 }, {
@@ -32,13 +32,13 @@ value('tableOfContents', [{
 // translation
 value('translation', {
     'off': 'вимкн',
-    'on': 'увімкн',
+    'on': 'увімк',
     'syntax': 'Вирізення-Синтаксису',
     'lineno': 'Номери-Рядків',
     'reset': 'Відновити слайд',
     'format': 'Формат вихідного коду',
     'kill': 'Вбити програму',
-    'run': 'Виконання',
+    'run': 'Виконати',
     'compile': 'Скомпілювати та виконати',
     'more': 'Налаштування',
     'toc': 'Зміст',
