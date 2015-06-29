@@ -15,17 +15,17 @@ value('tableOfContents', [{
 }, {
     'id': 'basics',
     'title': 'Основи',
-    'description': '<p>The starting point, learn all the basics of the language.</p><p>Declaring variables, calling functions, and all the things you need to know before moving to the next lessons.</p>',
+    'description': '<p>Початкова точка, вивчіть усі основи мови.</p><p>Оголошення змінних, виклик функцій та всі типи, як ви повинні знати перед тим, як переходити до наступних занять.</p>',
     'lessons': ['basics', 'flowcontrol', 'moretypes']
 }, {
     'id': 'methods',
     'title': 'Методи та інтерфейси',
-    'description': '<p>Learn how to define methods on types, how to declare interfaces, and how to put everything together.</p>',
+    'description': '<p>Вивчіть, як визначати методи для типів, як оголошувати інтерфеси, та як зв’язати все між собою.</p>',
     'lessons': ['methods']
 }, {
     'id': 'concurrency',
     'title': 'Конкуренція',
-    'description': '<p>Go provides concurrency features as part of the core language.</p><p>This module goes over goroutines and channels, and how they are used to implement different concurrency patterns.</p>',
+    'description': '<p>Go надає можливості конкуренції, як частину ядра самої мови.</p><p>Даний модуль проходить go-підпрограми та канали, та як вони слугують для втілення різних зразків конкуренції.</p>',
     'lessons': ['concurrency']
 }]).
 
@@ -35,24 +35,24 @@ value('translation', {
     'on': 'увімкн',
     'syntax': 'Вирізення-Синтаксису',
     'lineno': 'Номери-Рядків',
-    'reset': 'Reset Slide',
-    'format': 'Format Source Code',
+    'reset': 'Відновити слайд',
+    'format': 'Формат вихідного коду',
     'kill': 'Вбити програму',
     'run': 'Виконання',
     'compile': 'Скомпілювати та виконати',
-    'more': 'Options',
+    'more': 'Налаштування',
     'toc': 'Зміст',
     'prev': 'Назад',
     'next': 'Далі',
     'waiting': 'Очікування на віддалений сервер...',
     'errcomm': 'Помилка зв’язку з віддаленим сервером.',
-    'submit-feedback': 'Відправити відгус стосовно цієї сторінки',
+    'submit-feedback': 'Відправити відгук стосовно цієї сторінки',
 
     // GitHub issue template: update repo and messaging when translating.
-    'github-repo': 'github.com/golang/go',
-    'issue-title': 'tour: [short description of the issue]',
-    'issue-message': 'Describe your feedback here, including code if necessary',
-    'context': 'Context',
+    'github-repo': 'github.com/mak73kur/go-tour-ua',
+    'issue-title': 'tour: [короткий опис проблеми]',
+    'issue-message': 'Опишіть суть проблеми, в першу чергу те, що стосується перекладу.',
+    'context': 'Контекст',
 }).
 
 // Config for codemirror plugin
