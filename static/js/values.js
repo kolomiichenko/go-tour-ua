@@ -50,8 +50,8 @@ value('translation', {
 
     // GitHub issue template: update repo and messaging when translating.
     'github-repo': 'github.com/mak73kur/go-tour-ua',
-    'issue-title': 'tour: [ОПИС ПРОБЛЕМИ]',
-    'issue-message': 'Опишіть суть проблеми, в першу чергу те, що стосується перекладу.',
+    'issue-title': 'tour: [ЗАМІНІТЬ НА ОПИС ПРОБЛЕМИ]',
+    'issue-message': 'Змініть заголовок та опишіть тут суть проблеми, в першу чергу те, що стосується перекладу.',
     'context': 'Контекст',
 }).
 
