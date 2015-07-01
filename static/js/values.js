@@ -15,7 +15,7 @@ value('tableOfContents', [{
 }, {
     'id': 'basics',
     'title': 'Основи',
-    'description': '<p>Початкова точка, вивчіть усі основи мови.</p><p>Оголошення змінних, виклик функцій та всі типи, як ви повинні знати перед тим, як переходити до наступних занять.</p>',
+    'description': '<p>Початковий пункт, вивчіть усі основи мови.</p><p>Оголошення змінних, виклик функцій та всі типи, як ви повинні знати перед тим, як переходити до наступних занять.</p>',
     'lessons': ['basics', 'flowcontrol', 'moretypes']
 }, {
     'id': 'methods',
@@ -50,7 +50,7 @@ value('translation', {
 
     // GitHub issue template: update repo and messaging when translating.
     'github-repo': 'github.com/mak73kur/go-tour-ua',
-    'issue-title': 'tour: [короткий опис проблеми]',
+    'issue-title': 'tour: [ОПИС ПРОБЛЕМИ]',
     'issue-message': 'Опишіть суть проблеми, в першу чергу те, що стосується перекладу.',
     'context': 'Контекст',
 }).

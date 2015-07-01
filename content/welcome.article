@@ -35,7 +35,7 @@ http://golang.org
 текст у редакторі переформовується за допомогою інструменту
 [[http://golang.org/cmd/gofmt/][gofmt]]. Вирізнення синтаксису вмикається та вимикається клацанням на кнопку [[javascript:highlightAndClick(".syntax-checkbox")][синтаксис]].
 
-Коли ви готові продовжити, клацніть на [[javascript:highlightAndClick(".next-page")][стрілку вправо]] знизу або натисніть клавіш `PageDown`.
+Коли ви готові продовжити, клацніть на [[javascript:highlightAndClick(".next-page")][стрілку вправо]] знизу або натисніть клавішу `PageDown`.
 
 .play welcome/hello.go
 
