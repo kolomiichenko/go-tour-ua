@@ -43,6 +43,7 @@ http://golang.org
 
 Тур доступний іншими мовами:
 
+<<<<<<< HEAD
 - [[http://http://tour.golang.org/][Англійська — English]]
 - [[http://go-tour-br.appspot.com/][Бразильська португальська — Português do Brasil]]
 - [[http://go-tour-ca.appspot.com/][Каталонська — Català]]
@@ -56,6 +57,21 @@ http://golang.org
 - [[http://go-tour-ro.appspot.com/][Румунська — Română]]
 - [[http://tour.go-zh.org/][Спрощена китайська — 中文（简体）]]
 - [[http://go-tour-zh-tw.appspot.com/][Традиційна китайська — 中文（繁體）]]
+=======
+- [[http://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
+- [[http://go-tour-ca.appspot.com/][Catalan — Català]]
+- [[http://go-tour-de.appspot.com/][German — Deutsch]]
+- [[http://go-tour-es.appspot.com/][Spanish — Español]]
+- [[http://go-tour-fr.appspot.com/][French — Français]]
+- [[http://go-tour-ita.appspot.com/][Italian — Italiano]]
+- [[http://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
+- [[http://go-tour-jp.appspot.com/][Japanese — 日本語]]
+- [[http://go-tour-kr.appspot.com/][Korean — 한국어]]
+- [[http://go-tour-ro.appspot.com/][Romanian — Română]]
+- [[http://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
+- [[http://go-tour-zh-tw.appspot.com/][Traditional Chinese — 中文（繁體）]]
+- [[http://go-tour-ua.appspot.com/][Ukrainian — Українська]]
+>>>>>>> e2c973aa8d9f608e3d128e2abb4dc9b7a79260f9
 
 Клацніть кнопку [[javascript:highlightAndClick(".next-page")]["далі"]] або натисніть `PageDown`, щоб продовжити.
 
