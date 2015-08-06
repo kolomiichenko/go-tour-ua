@@ -140,8 +140,8 @@ http://golang.org
 а також те, що оголошення змінних може бути «складена» в блоки,
 схожі на інструкції імпорту.
 
-The `int`, `uint`, and `uintptr` types are usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems.
-When you need an integer value you should use `int` unless you have a specific reason to use a sized or unsigned integer type.
+Типи `int`, `uint` та `uintptr` зазвичай займають 32 біти на 32-бітній системі та 64 біти на 64-бітній.
+Ви маєте використовувати `int` для цілих значень, за винятком коли є певні причини для використання розмірних або беззнакових типів.
 
 .play basics/basic-types.go
 
