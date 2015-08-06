@@ -218,6 +218,10 @@ Nil вирізка має довжину та ємність рівні 0.
 
 Так само, якщо читати зі словника неіснуючий ключ, результатом є нульове значення типу елементів словника.
 
+_Note_: if `elem` or `ok` have not yet been declared you could use a short declaration form:
+
+	elem, ok := m[key]
+
 .play moretypes/mutating-maps.go
 
 * Вправа: Словники
