@@ -1,12 +1,13 @@
 Ласкаво просимо!
 Дізнайтеся як користуватися цим туром: включно з навігацією різними заняттями та виконанням коду.
 
+
 Автори Go
-http://golang.org
+https://golang.org
 
 * Привіт, 世界
 
-Ласкаво просимо до туру з [[http://golang.org/][мови програмування Go]].
+Ласкаво просимо до туру з [[https://golang.org/][мови програмування Go]].
 
 Цей тур поділений на список модулів, доступний за клацанням на [[javascript:highlight(".logo")][Тур з Go]] нагорі у лівому кутку сторінки.
 
@@ -33,7 +34,7 @@ http://golang.org
 
 Зверніть увагу, що за клацанням на [[javascript:highlightAndClick("#format")][Формат]] або `ctrl-enter`
 текст у редакторі переформовується за допомогою інструменту
-[[http://golang.org/cmd/gofmt/][gofmt]]. Вирізнення синтаксису вмикається та вимикається клацанням на кнопку [[javascript:highlightAndClick(".syntax-checkbox")][синтаксис]].
+[[https://golang.org/cmd/gofmt/][gofmt]]. Вирізнення синтаксису вмикається та вимикається клацанням на кнопку [[javascript:highlightAndClick(".syntax-checkbox")][синтаксис]].
 
 Коли ви готові продовжити, клацніть на [[javascript:highlightAndClick(".next-page")][стрілку вправо]] знизу або натисніть клавішу `PageDown`.
 
@@ -43,28 +44,47 @@ http://golang.org
 
 Тур доступний іншими мовами:
 
-- [[http://tour.golang.org/][Англійська — English]]
-- [[http://go-tour-br.appspot.com/][Бразильська португальська — Português do Brasil]]
-- [[http://go-tour-ca.appspot.com/][Каталонська — Català]]
-- [[http://go-tour-de.appspot.com/][Німецька — Deutsch]]
-- [[http://go-tour-es.appspot.com/][Іспанська — Español]]
-- [[http://go-tour-fr.appspot.com/][Французька — Français]]
-- [[http://go-tour-ita.appspot.com/][Італійська — Italiano]]
-- [[http://go-tour-he.appspot.com/][Іврит — עִבְרִית]]
-- [[http://go-tour-jp.appspot.com/][Японська — 日本語]]
-- [[http://go-tour-kr.appspot.com/][Корейська — 한국어]]
-- [[http://go-tour-ro.appspot.com/][Румунська — Română]]
-- [[http://tour.go-zh.org/][Спрощена китайська — 中文（简体）]]
-- [[http://go-tour-zh-tw.appspot.com/][Традиційна китайська — 中文（繁體）]]
-- [[http://go-tour-uz.appspot.com/][Узбецька — Ўзбекча]]
+- [[https://tour.golang.org/][Англійська — English]]
+- [[https://go-tour-br.appspot.com/][Бразильська португальська — Português do Brasil]]
+- [[https://go-tour-ca.appspot.com/][Каталонська — Català]]
+- [[https://go-tour-de.appspot.com/][Німецька — Deutsch]]
+- [[https://go-tour-es.appspot.com/][Іспанська — Español]]
+- [[https://go-tour-fr.appspot.com/][Французька — Français]]
+- [[https://go-tour-ita.appspot.com/][Італійська — Italiano]]
+- [[https://go-tour-he.appspot.com/][Іврит — עִבְרִית]]
+- [[https://go-tour-jp.appspot.com/][Японська — 日本語]]
+- [[https://go-tour-kr.appspot.com/][Корейська — 한국어]]
+- [[https://go-tour-ro.appspot.com/][Румунська — Română]]
+- [[https://tour.go-zh.org/][Спрощена китайська — 中文（简体）]]
+- [[https://go-tour-zh-tw.appspot.com/][Традиційна китайська — 中文（繁體）]]
+- [[https://go-tour-uz.appspot.com/][Узбецька — Ўзбекча]]
 - [[http://tur.a.golang.org.tr/][Турецька - Türkçe]]
 
 Клацніть кнопку [[javascript:highlightAndClick(".next-page")]["далі"]] або натисніть `PageDown`, щоб продовжити.
 
+#appengine: * Go офлайн
+#appengine: 
+#appengine: Даний тур також доступний як автономна програма, яку ви можете
+#appengine: використовувати без доступу до мережі.
+#appengine: 
+#appengine: Автономний тур є швидшим, бо він будує та виконує зразки коду
+#appengine: на вашій власній машині.
+#appengine: 
+#appengine: Щоб запустити тур локально, спершу [[https://golang.org/doc/install/][встановіть Go]],
+#appengine: потім за допомогою [[https://golang.org/cmd/go/][go get]] встановіть
+#appengine: [[https://golang.org/x/tour/][gotour]]:
+#appengine: 
+#appengine: 	go get golang.org/x/tour/gotour
+#appengine: 
+#appengine: та запустіть отриманий виконувальний файл `gotour`.
+#appengine: 
+#appengine: 	cd $GOPATH/bin
+#appengine: 	./gotour
+
 #appengine: * Go Майданчик
 #appengine: 
-#appengine: Цей тур побудований на базі [[http://play.golang.org/][Go Майданчику]],
-#appengine: веб-служби, що працює на серверах [[http://golang.org/][golang.org]].
+#appengine: Цей тур побудований на базі [[https://play.golang.org/][Go Майданчику]],
+#appengine: веб-служби, що працює на серверах [[https://golang.org/][golang.org]].
 #appengine: 
 #appengine: Служба отримує Go програму, компілює, компонує та виконує програму в межах
 #appengine: пісочниці, потім повертає результат.
@@ -77,7 +97,7 @@ http://golang.org
 #appengine: 
 #appengine: Майданчик використовує останній стійкий реліз Go.
 #appengine: 
-#appengine: Прочитайте "[[http://blog.golang.org/playground][Всередині Go Майданчику]]", щоб дізнатися більше.
+#appengine: Прочитайте "[[https://blog.golang.org/playground][Всередині Go Майданчику]]", щоб дізнатися більше.
 #appengine: 
 #appengine: .play welcome/sandbox.go
 
